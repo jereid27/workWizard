@@ -21,6 +21,8 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @EnableWebSecurity
 public class SecurityConfig {
 
+    //This configuration class allows a user to register for an account using a hashed password.
+    //This also only allows users with an account to specific pages such as the dashboard.
 
     @Autowired
     private  CustomUserDetailsService customUserDetailsService;
