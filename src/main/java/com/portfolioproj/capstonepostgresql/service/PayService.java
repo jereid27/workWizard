@@ -10,5 +10,8 @@ import java.util.Optional;
 
 public interface PayService extends BaseService<Pay> {
 
+    //This interface demonstrates inheritance as it extends BaseService to inherit
+    //common operations for their respective entity types.
+
 
 }

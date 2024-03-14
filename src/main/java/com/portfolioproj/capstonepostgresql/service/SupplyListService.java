@@ -7,5 +7,7 @@ import java.util.Optional;
 
 public interface SupplyListService extends BaseService<SupplyList>{
 
+    //This interface demonstrates inheritance as it extends BaseService to inherit
+    //common operations for their respective entity types.
 
 }

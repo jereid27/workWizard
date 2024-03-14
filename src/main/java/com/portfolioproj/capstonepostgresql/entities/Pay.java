@@ -70,4 +70,5 @@ public class Pay {
     public void setUser(User user) {
         this.user = user;
     }
+
 }

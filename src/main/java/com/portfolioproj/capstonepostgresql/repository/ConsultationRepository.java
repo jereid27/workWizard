@@ -22,4 +22,7 @@ public interface ConsultationRepository extends JpaRepository<Consultations, Lon
     List<Consultations> findAllByUserId(Long userId);
 
     List<Consultations> findByDate(LocalDate date);
+
+    //This demonstrates inheritance as the interface inherits
+    // the JpaRepository interface's methods and functionality.
 }

@@ -9,4 +9,9 @@ public interface BaseService<T> {
     T save(T entity);
     void delete(Long id);
     List<T> listAll(String keyword);
+
+    //BaseService is an implementation of inheritance and polymorphism.
+
+    //Implementations of this interface provide specific
+    // functionality for different types of entities, allowing for polymorphism.
 }

@@ -82,4 +82,9 @@ public class Consultations {
     public void setUser(User user) {
         this.user = user;
     }
+
+    //Each entity demonstrates encapsulation by
+    // using private fields (id, name, date, notes, phoneNumber, user)
+    // and providing public getter and setter methods for
+    // accessing and modifying these fields.
 }
