@@ -31,6 +31,10 @@
                 role="form"
               th:object="${users}"
               >
+
+            <!--Each form has validation to ensure that it is not left empty in addition to the validation error message if the password does not include
+            a special character.-->
+
             <p><input type="text" th:field="*{fullname}" placeholder="Full Name" class="input-box" required minlength="1" maxlength="25"/></p>
             <p><input type="text" th:field="*{username}" placeholder="Username" class="input-box" required minlength="1" maxlength="25"/></p>
             <p><input type="text" th:field="*{password}" placeholder="Password" class="input-box" required minlength="8" maxlength="20"/></p>

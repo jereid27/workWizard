@@ -129,6 +129,8 @@ public class AppController {
             return "register";
         }
 
+        //This following if statement is used as validation to validate the creation of a password to ensure that it uses a special character.
+
         if (!userService.specialCharacters(userRegistrationDto.getPassword())) {
             if (!userService.specialCharacters(userRegistrationDto.getPassword())) {
                 redirectAttributes.addAttribute("error", "true");

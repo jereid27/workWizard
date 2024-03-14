@@ -22,9 +22,13 @@
     <div class="consultation-details" th:if="${consultations != null}">
         <div class="details">
             <p><strong class="label">Name:</strong> <span class="text" th:text="${consultations.name}"></span></p>
+            <span id="nameError" style="color: red; display: none;">Name is required</span><br>
             <p><strong class="label">Phone Number:</strong> <span class="text" th:text="${consultations.phoneNumber}"></span></p>
+            <span id="phoneNumberError" style="color: red; display: none;">Phone Number is required</span><br>
             <p><strong class="label">Date:</strong> <span class="text" th:text="${#temporals.format(consultations.date, 'MM/dd/yyyy')}"></span></p>
+            <span id="dateError" style="color: red; display: none;">Date is required</span><br>
             <p><strong class="label">Notes:</strong> <span class="text" th:text="${consultations.notes}"></span></p>
+            <span id="notesError" style="color: red; display: none;">Notes are required</span><br>
         </div>
     </div>
     <div class="buttons">
@@ -44,6 +48,70 @@
         if (confirm('Are you sure you want to delete this consultation?')) {
             document.getElementById('deleteForm').submit();
         }
+    }
+
+        var formSubmitted = false;
+
+        function validateName() {
+        var name = document.getElementById('name').value;
+        var nameError = document.getElementById('nameError');
+
+        if (formSubmitted && name.trim() === '') {
+        nameError.style.display = 'block';
+        return false;
+    } else {
+        nameError.style.display = 'none';
+        return true;
+    }
+    }
+
+        function validatePhoneNumber() {
+        var phoneNumber = document.getElementById('phoneNumber').value;
+        var phoneNumberError = document.getElementById('phoneNumberError');
+
+        if (formSubmitted && phoneNumber.trim() === '') {
+        phoneNumberError.style.display = 'block';
+        return false;
+    } else {
+        phoneNumberError.style.display = 'none';
+        return true;
+    }
+    }
+
+        function validateDate() {
+        var date = document.getElementById('date').value;
+        var dateError = document.getElementById('dateError');
+
+        if (formSubmitted && date.trim() === '') {
+        dateError.style.display = 'block';
+        return false;
+    } else {
+        dateError.style.display = 'none';
+        return true;
+    }
+    }
+
+        function validateNotes() {
+        var notes = document.getElementById('notes').value;
+        var notesError = document.getElementById('notesError');
+
+        if (formSubmitted && notes.trim() === '') {
+        notesError.style.display = 'block';
+        return false;
+    } else {
+        notesError.style.display = 'none';
+        return true;
+    }
+    }
+
+        function validateForm() {
+        formSubmitted = true;
+        var isNameValid = validateName();
+        var isPhoneNumberValid = validatePhoneNumber();
+        var isDateValid = validateDate();
+        var isNotesValid = validateNotes();
+
+        return isNameValid && isPhoneNumberValid && isDateValid && isNotesValid;
     }
 </script>
 

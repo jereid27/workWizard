@@ -32,6 +32,7 @@ public class UserServiceImpl implements UserService{
         return userRepository.save(user);
     }
 
+    //This is the method that checks a user entered password to ensure that it uses a special character before creating the account.
     @Override
     public boolean specialCharacters(String password) {
         String specialCharacters = "!@#$%^&*()-_=+[{]};:'\",<.>/?";
