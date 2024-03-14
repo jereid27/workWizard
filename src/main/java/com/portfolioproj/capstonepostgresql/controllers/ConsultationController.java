@@ -111,6 +111,8 @@ public class ConsultationController {
 
         return "redirect:/dashboard";
     }
+
+    //This controller method demonstrates a search functionality with multiple rows and displays.
     @GetMapping("/search")
     public String search(@RequestParam(value = "keyword", required = false) String keyword, Model model, Principal principal) {
         List<Consultations> searchResults = consultationService.listAll(keyword);

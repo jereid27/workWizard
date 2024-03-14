@@ -100,6 +100,7 @@ public class SupplyListController {
         return "redirect:/dashboard";
     }
 
+    //This controller method demonstrates a search functionality with multiple rows and displays.
     @GetMapping("/supplyList/search")
     public String searchSupplyList(Model model, @RequestParam("supplyKeyword") String supplyKeyword, Principal principal) {
         List<SupplyList> searchResults = supplyListService.listAll(supplyKeyword);
