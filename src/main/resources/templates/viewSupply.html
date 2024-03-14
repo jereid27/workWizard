@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Supply</title>
+    <link rel="stylesheet" type="text/css" href="/css/viewConsultation.css" th:href="@{/css/viewConsultation.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Recursive:wght@300..1000&display=swap" rel="stylesheet">
+
+    <style>
+        body{ background-image: url('/images/dashbackground.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+
+<div class="view-consults">
+    <h1>Supply Details</h1>
+    <div class="consultation-details" th:if="${supply != null}">
+        <div class="details">
+            <p><strong class="label">Supply Name:</strong> <span class="text" th:text="${supply.supplyName}"></span></p>
+            <p><strong class="label">Quantity:</strong> <span class="text" th:text="${supply.quantity}"></span></p>
+        </div>
+    </div>
+    <div class="buttons">
+        <a class="dash-button" th:href="@{/dashboard}">Dashboard</a>
+        <a class="update-button" th:href="@{/supplyList/update/{id}(id=${supply.id})}">Update</a>
+        <form th:action="@{/deleteSupply}" method="post">
+            <input type="hidden" name="supplyId" th:value="${supply.id}" />
+            <button class="delete-button" type="submit" onclick="confirmDelete()">Delete</button>
+        </form>
+    </div>
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,370 @@
+* {
+    color: white;
+    margin: 5px;
+    font-family: "Fjalla One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    width: 100%;
+    top: 2.8%;
+    z-index: 1000;
+}
+
+
+.links {
+}
+
+.links a{
+    text-decoration: none;
+    padding: 20px;
+    font-size: 27px;
+}
+
+.links a:hover{
+    color: #ee8b0c;
+    cursor: pointer;
+}
+
+.logout {
+    display: flex;
+    margin-right: 50px;
+
+}
+
+.logout a{
+    font-size: 20px;
+}
+
+.logout-button:hover{
+    color: #f6001c;
+    cursor: pointer;
+}
+
+.username:hover{
+    color: #ee8b0c;
+    cursor: pointer;
+}
+
+body {
+    padding-top: 60px;
+}
+
+.logo {
+    height: 80px;
+    max-height: 100vh;
+    max-width: 50vw;
+    position: absolute;
+    top: 3%;
+    left: 3%;
+}
+
+.work-box {
+    position: absolute;
+    top: 22%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.work-box > div {
+    flex: 1;
+    padding: 10px 30px 10px 5px;
+    margin-right: 60px;
+    border: solid white 1px;
+    border-radius: 5px;
+    height: 360px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    transition: height 0.3s, width 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    position: relative;
+    align-items: flex-start;
+}
+
+.work-box > div h1{
+    font-size: 35px;
+    padding: 0;
+}
+
+
+.work-box > div:last-child {
+    margin-right: 0;
+}
+
+.site-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.view-button {
+    width: fit-content;
+    padding: 5px;
+    border: solid white 1px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+    text-decoration: none;
+    transition: all 0.3s;
+    background: none;
+}
+
+.view-button:hover{
+    background-color: rgba(128, 128, 128, 0.29);
+    cursor: pointer;
+
+}
+
+.up-button {
+    width: fit-content;
+    padding: 5px;
+    border: solid white 1px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s;
+    background: none;
+}
+
+.up-button:hover{
+    background-color: rgba(128, 128, 128, 0.29);
+    cursor: pointer;
+
+}
+
+
+
+td a {
+    text-decoration: none;
+    color: white;
+}
+
+td a:hover {
+    color: #ee8b0c;
+    cursor: pointer;
+}
+
+.search-box form {
+    display: flex;
+}
+
+.search-bar {
+    width: 170px;
+    background-color: #24162d;
+    border-radius: 10px;
+    flex: 1;
+    margin-right: 5px;
+}
+
+.search-button {
+    background-color: #1a0f1f;
+    padding: 5px;
+    height: fit-content;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.search-button:hover {
+    background-color: black;
+    cursor: pointer;
+}
+
+span {
+    padding-right: 35px;
+}
+
+.supply {
+    padding-right: 80px;
+}
+
+.name-box {
+    color: #f3f0f0;
+    width: 120px;
+}
+
+.quantity-box{
+    width: 30px;
+    color: #f3f0f0;
+}
+
+
+.table-container {
+    height: 180px;
+    overflow-y: auto;
+}
+
+
+.supply-table {
+    width: 270px;
+    border-collapse: collapse;
+}
+
+
+.supply-table th {
+    color: white;
+    text-align: left;
+    border-bottom: 3px solid #ddd;
+}
+
+
+.supply-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+
+.table-container::-webkit-scrollbar {
+    width: 5px;
+    height: 10px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.add-supply {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-supply p {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.add-supply input {
+    background-color: #24162d;
+    border-radius: 10px;
+}
+
+.supply:hover {
+    color: #ee8b0c;
+    cursor: pointer;
+}
+
+.delete {
+    width: fit-content;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s;
+    background-color: red;
+    font-size: 15px;
+
+}
+
+.delete:hover {
+    background-color: #6b0404;
+}
+
+.add-payment input {
+    background-color: #24162d;
+    border-radius: 10px;
+}
+
+.add-payment {
+    border-top: 1px solid #ddd;
+    margin: 0px 10px 10px 0px;
+}
+
+.amount-box , .percentage-box{
+    width: 30px
+}
+
+.input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+
+.payment-table td {
+    padding: 5px;
+}
+
+.add-payment p {
+    margin: 0;
+}
+.date-box {
+    width: 125px;
+}
+.amount-box,
+.percentage-box {
+    width: 25px;
+}
+
+
+.pay-button {
+    width: fit-content;
+    padding: 5px;
+    border: solid white 1px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+    text-decoration: none;
+    transition: all 0.3s;
+    background: none;
+
+}
+.pay-button:hover{
+    background-color: rgba(128, 128, 128, 0.29);
+    cursor: pointer;
+
+}
+
+.payment-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.payment-table th {
+    color: #d2d2d2;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 3px solid #ddd;
+}
+
+
+.payment-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.generateReport {
+    font-size: 15px;
+    color: #4545ff;
+    margin-left: 30px;
+}
+
+.generateReport:hover {
+    color: #a9a9ff;
+    cursor: pointer;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Consultation</title>
+    <link rel="stylesheet" type="text/css" href="/css/viewConsultation.css" th:href="@{/css/viewConsultation.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Recursive:wght@300..1000&display=swap" rel="stylesheet">
+
+    <style>
+        body{ background-image: url('/images/dashbackground.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+
+<div class="view-consults">
+    <h1>Update Details</h1>
+    <div class="consultation-details" th:if="${supply != null}">
+        <div class="details">
+            <form th:action="@{/supplyList/update/{id}(id=${supply.id})}" method="post" onsubmit="return validateForm()">
+                <label for="supplyName">Supply Name:</label>
+                <input type="text" id="supplyName" name="supplyName" class="input-box" th:value="${supply.supplyName}" required><br>
+
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" class="input-box" th:value="${supply.quantity}" required><br>
+
+                <div class="buttons">
+                    <button type="submit" class="up-button">Update</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+    function validateForm() {
+        var quantity = document.getElementById('quantity').value;
+
+        if (parseInt(quantity) < 1) {
+            alert('Quantity must be at least 1!');
+            return false;
+        }
+
+        return true;
+    }
+</script>
+</body>
+</html>

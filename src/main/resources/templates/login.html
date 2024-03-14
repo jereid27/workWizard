@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Work Wizard - Login</title>
+    <link rel="stylesheet" type="text/css" href="/css/landingPage.css" th:href="@{/css/login.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Recursive:wght@300..1000&display=swap" rel="stylesheet">
+
+    <style>
+        body{ background-image: url('/images/landing-page.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+
+    <img class="logo" th:src="@{/images/logo-font.png}" alt="logo">
+    <div class="login-box">
+        <p class="invalidPass" th:if="${param.error}">Invalid Username or Password</p>
+        <p th:if="${param.logout}">
+            <span style="color: red;">Logout Successful</span>
+        </p>
+        <h1>Login</h1>
+        <form
+                th:action="@{/login}"
+                method="POST"
+                role="form"
+                th:object="${users}"
+        >
+            <p><input th:field="*{username}" type="text" id="username" name="username" placeholder="Username" class="input-box" required minlength="1" maxlength="25"/></p>
+            <p><input th:field="*{password}" type="password" id="password" name="password" placeholder="Password" class="input-box" required minlength="8" maxlength="20"/></p>
+
+            <button type="submit" class="login-button">Login</button>
+        </form>
+        <span class="small-text">Not Registered? <a th:href="@{/register}">Register</a></span>
+    </div>
+
+</body>
+</html>

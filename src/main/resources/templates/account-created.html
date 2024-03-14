@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Account Created</title>
+    <link rel="stylesheet" type="text/css" href="/css/account-created.css" th:href="@{/css/account-created.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Recursive:wght@300..1000&display=swap" rel="stylesheet">
+
+    <style>
+        body{ background-image: url('/images/landing-page.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+<div class="show-box">
+    <h1 th:text="'Thanks ' + ${users.fullname} + '!'"></h1>
+    <h2> Your account has been created!</h2>
+
+    <a class="dash-button" th:href="@{/login}" id="myLink" >Login</a>
+
+</div>
+</body>
+</html>

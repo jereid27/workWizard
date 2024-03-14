@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Supply</title>
+    <link rel="stylesheet" type="text/css" href="/css/viewConsultation.css" th:href="@{/css/pay.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Recursive:wght@300..1000&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-image: url('/images/dashbackground.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+<div class="view-consults">
+    <h1>New Payment</h1>
+    <div class="consultation-details" th:if="${pay != null}">
+        <div class="details">
+            <form class="add-payment"
+                  th:action="@{/addPayment}"
+                  method="POST"
+                  th:object="${pay}"
+                  role="form"
+                  enctype="multipart/form-data"
+                  onsubmit="return validateForm()">
+                <p>
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" th:field="*{date}" class="pay-box" required onchange="validateDate()">
+                    <span id="dateError" style="color: red; display: none;">Date is required</span>
+                </p>
+                <p>
+                    <label for="amount">Amount:</label>
+                    <input type="number" id="amount" th:field="*{amount}" class="small-box" required onchange="validateAmount()">
+                    <span id="amountError" style="color: red; display: none;">Amount must be at least 1</span>
+                </p>
+                <p>
+                    <label for="artistPercentage">Artist Percentage:</label>
+                    <input type="number" id="artistPercentage" th:field="*{artistPercentage}" class="small-box" required onchange="validatePercentage()">
+                    <span id="percentageError" style="color: red; display: none;">Percentage must be at least 1</span>
+                </p>
+                <div class="buttons">
+                    <button type="submit" class="up-button">Add</button>
+                    <a class="dash-button" th:href="@{/dashboard}">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    var formSubmitted = false;
+    function validateForm() {
+        formSubmitted = true;
+        var isDateValid = validateDate();
+        var isAmountValid = validateAmount();
+        var isPercentageValid = validatePercentage();
+
+        return isDateValid && isAmountValid && isPercentageValid;
+    }
+
+    function validateDate() {
+        var date = document.getElementById('date').value;
+        var dateError = document.getElementById('dateError');
+
+        if (formSubmitted && date.trim() === '') {
+            dateError.style.display = 'block';
+            return false;
+        } else {
+            dateError.style.display = 'none';
+            return true;
+        }
+    }
+
+    function validateAmount() {
+        var amount = document.getElementById('amount').value;
+        var amountError = document.getElementById('amountError');
+
+        if (formSubmitted && (amount.trim() === '' || parseInt(amount) < 1)) {
+            amountError.style.display = 'block';
+            return false;
+        } else {
+            amountError.style.display = 'none';
+            return true;
+        }
+    }
+
+    function validatePercentage() {
+        var percentage = document.getElementById('artistPercentage').value;
+        var percentageError = document.getElementById('percentageError');
+
+        if (formSubmitted && (percentage.trim() === '' || parseInt(percentage) < 1)) {
+            percentageError.style.display = 'block';
+            return false;
+        } else {
+            percentageError.style.display = 'none';
+            return true;
+        }
+    }
+</script>
+
+</body>
+</html>

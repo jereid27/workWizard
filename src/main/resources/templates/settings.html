@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Settings</title>
+    <link rel="stylesheet" type="text/css" href="/css/account-created.css" th:href="@{/css/settings.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Recursive:wght@300..1000&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-image: url('/images/dashbackground.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+<img class="logo" th:src="@{/images/logo-font.png}" alt="logo">
+<div class="navbar">
+
+    <div class="logout">
+        <a class="username" th:href="@{/settings}">[[${userdetails.getFullname()}]]</a>
+        <span sec:authorize="isAuthenticated"> <a class="logout-button" th:href="@{/logout}">Logout</a></span>
+    </div>
+
+</div>
+
+<div class="settings-box">
+
+    <h1 class="title">Account Settings</h1>
+
+    <h1>Username: [[${userdetails.getFullname()}]]</h1>
+    <form id="deleteForm" th:action="@{/delete}" method="post">
+        <input type="hidden" name="username" th:value="${userdetails.getUsername()}">
+        <button class="delete-button" type="button" onclick="confirmDelete()">Delete Account</button>
+    </form>
+    <a class="dash-button" th:href="@{/dashboard}">Dashboard</a>
+
+</div>
+
+<script>
+    function confirmDelete() {
+        if (confirm("Are you sure you want to delete your account?")) {
+            document.getElementById("deleteForm").submit();
+        }
+    }
+</script>
+
+</body>
+</html>

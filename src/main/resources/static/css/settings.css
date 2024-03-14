@@ -1,0 +1,122 @@
+* {
+    color: white;
+    margin: 5px;
+    font-family: "Fjalla One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    width: 100%;
+    top: 1%;
+    z-index: 1000;
+}
+
+
+.links {
+    margin-right: 170px;
+}
+
+.links a{
+    text-decoration: none;
+    padding: 30px;
+    font-size: 27px;
+}
+
+.links a:hover{
+    color: #ee8b0c;
+    cursor: pointer;
+}
+
+.logout {
+    display: flex;
+    margin-right: 50px;
+
+}
+
+.logout a{
+    font-size: 20px;
+}
+
+.logout-button:hover{
+    color: #f6001c;
+    cursor: pointer;
+}
+
+.username:hover{
+    color: #ee8b0c;
+    cursor: pointer;
+}
+
+body {
+    padding-top: 60px;
+}
+
+.logo {
+    height: 50px;
+    max-height: 100vh;
+    max-width: 50vw;
+    position: absolute;
+    top: 3%;
+    left: 3%;
+}
+
+.title {
+    font-size: 32px;
+}
+
+.settings-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    border: solid 1px white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.delete-button {
+    background-color: #1a0f1f;
+    padding: 5px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    width: fit-content;
+}
+
+.delete-button:hover{
+    background-color: #0c070e;
+    cursor: pointer;
+}
+
+.dash-button {
+    background-color: #1a0f1f;
+    padding: 6px;
+    height: fit-content;
+    margin-bottom: 0;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    margin-top: 8px;
+}
+
+.dash-button:hover {
+    background-color: black;
+    cursor: pointer;
+}

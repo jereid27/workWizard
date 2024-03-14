@@ -1,0 +1,41 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.logo {
+    height: 320px;
+    max-height: 100vh;
+    max-width: 50vw;
+    position: absolute;
+    top: 5%;
+    left: 23%;
+}
+.login-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: fit-content;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.button {
+    padding: 10px;
+    color: white;
+    margin: 5px;
+    font-family: "Fjalla One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.button:hover{
+    color: #1f1e1e;
+    cursor: pointer;
+}

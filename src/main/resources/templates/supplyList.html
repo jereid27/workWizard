@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Supply</title>
+    <link rel="stylesheet" type="text/css" href="/css/viewConsultation.css" th:href="@{/css/viewConsultation.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Recursive:wght@300..1000&display=swap" rel="stylesheet">
+
+    <style>
+        body{ background-image: url('/images/dashbackground.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+<div class="view-consults">
+    <h1>New Supply</h1>
+    <div class="consultation-details" th:if="${supplyList != null}">
+        <div class="details">
+            <form class="add-supply"
+                  th:action="@{/supplyLists}"
+                  method="POST"
+                  th:object="${supplyList}"
+                  role="form"
+                  enctype="multipart/form-data"
+                  onsubmit="return validateForm()">
+                <label for="supplyName">Supply Name:</label>
+                <input type="text" id="supplyName" name="supplyName" th:field="*{supplyName}" placeholder="Supply Name" class="input-box" required><br>
+                <span id="supplyNameError" style="color: red; display: none;">Supply Name is required</span><br>
+
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" th:field="*{quantity}" placeholder="Quantity" class="input-box" required><br>
+                <span id="quantityError" style="color: red; display: none;">Quantity must be at least 1</span><br>
+
+                <div class="buttons">
+                    <button type="submit" class="up-button">Add</button>
+                    <a class="dash-button" th:href="@{/dashboard}">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    var formSubmitted = false;
+
+    function validateSupplyName() {
+        var supplyName = document.getElementById('supplyName').value;
+        var supplyNameError = document.getElementById('supplyNameError');
+
+        if (formSubmitted && supplyName.trim() === '') {
+            supplyNameError.style.display = 'block';
+            return false;
+        } else {
+            supplyNameError.style.display = 'none';
+            return true;
+        }
+    }
+
+    function validateQuantity() {
+        var quantity = document.getElementById('quantity').value;
+        var quantityError = document.getElementById('quantityError');
+
+        if (formSubmitted && quantity.trim() === '') {
+            quantityError.style.display = 'block';
+            return false;
+        } else if (formSubmitted && parseInt(quantity) < 1) {
+            quantityError.style.display = 'block';
+            return false;
+        } else {
+            quantityError.style.display = 'none';
+            return true;
+        }
+    }
+
+    function validateForm() {
+        formSubmitted = true;
+        var isSupplyNameValid = validateSupplyName();
+        var isQuantityValid = validateQuantity();
+
+        return isSupplyNameValid && isQuantityValid;
+    }
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+* {
+    color: white;
+    margin: 5px;
+    font-family: "Fjalla One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 17px;
+}
+
+.label {
+    font-size: 21px;
+}
+
+.text {
+    color: #c2c2c2;
+}
+
+.view-consults {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: fit-content;
+    height: fit-content;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    padding-right: 40px;
+    padding-left: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: solid 1px white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.consultation-details {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 35px;
+}
+
+.dash-button {
+    background-color: #1a0f1f;
+    padding: 6px;
+    height: fit-content;
+    margin-bottom: 0;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    margin-top: 8px;
+}
+
+.dash-button:hover{
+    background-color: #000000;
+    cursor: pointer;
+}
+
+.details {
+    flex: 1;
+}
+
+.image {
+    margin-left: 30px;
+}
+
+.delete-button {
+    background-color: #de011e;
+    padding: 5px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    margin-right: 5px;
+}
+
+.update-button {
+    background-color: #de9101;
+    padding: 5px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    margin-right: 5px;
+    height: fit-content;
+    margin-top: 8px;
+}
+
+.delete-button:hover {
+    background-color: #6b0404;
+    cursor: pointer;
+}
+
+.update-button:hover {
+    background-color: #e06700;
+    cursor: pointer;
+}
+
+.buttons {
+    align-self: flex-end;
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+}
+
+.input-box{
+    background-color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    color: black;
+    font-size: 20px;
+}
+
+.up-button {
+    background-color: #1a0f1f;
+    padding: 6px;
+    height: fit-content;
+    margin-bottom: 0;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    margin-top: 8px;
+}
+
+.up-button:hover {
+    background-color: #000000;
+    cursor: pointer;
+}

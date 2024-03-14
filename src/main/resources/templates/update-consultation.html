@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Consultation</title>
+    <link rel="stylesheet" type="text/css" href="/css/viewConsultation.css" th:href="@{/css/viewConsultation.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Recursive:wght@300..1000&display=swap" rel="stylesheet">
+
+    <style>
+        body{ background-image: url('/images/dashbackground.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="view-consults">
+        <h1>Consultation Details</h1>
+        <div class="consultation-details" th:if="${consultation != null}">
+            <div class="details">
+                <form th:action="@{/consultations/update/{id}(id=${consultation.id})}" method="post" onsubmit="return validateForm()">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" class="input-box" th:value="${consultation.name}" required><br>
+
+                    <label for="name">Phone Number:</label>
+                    <input type="text" id="phoneNumber" name="phoneNumber" class="input-box" th:value="${consultation.phoneNumber}" required><br>
+
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" class="input-box" th:value="${#temporals.format(consultation.date, 'MM/dd/yyyy')}" required><br>
+
+                    <label for="notes">Notes:</label>
+                    <textarea id="notes" name="notes" class="input-box" required th:text="${consultation.notes}"></textarea><br>
+
+                    <div class="buttons">
+                        <button type="submit" class="up-button">Update</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+
+        function validateForm() {
+            var name = document.getElementById('name').value;
+            var date = document.getElementById('date').value;
+            var notes = document.getElementById('notes').value;
+
+            if (name.trim() === '' || date.trim() === '' || notes.trim() === '') {
+                alert('All fields are required!');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Consultations</title>
+    <link rel="stylesheet" type="text/css" href="/css/viewConsultation.css" th:href="@{/css/viewConsultation.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Recursive:wght@300..1000&display=swap" rel="stylesheet">
+
+    <style>
+        body{ background-image: url('/images/dashbackground.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+
+<div class="view-consults">
+    <h1>New Consultation</h1>
+    <div class="consultation-details" th:if="${consultations != null}">
+        <div class="details">
+            <form
+                    th:action="@{/consultations}"
+                    method="POST"
+                    role="form"
+                    th:object="${consultations}"
+                    enctype="multipart/form-data"
+                    onsubmit="return validateForm()">
+                <label for="name">Name:</label>
+                <input type="text" id="name" th:field="*{name}" placeholder="Name" class="input-box" required minlength="1" maxlength="25" onchange="validateName()">
+                <span id="nameError" style="color: red; display: none;">Name is required</span><br>
+
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="text" id="phoneNumber" th:field="*{phoneNumber}" placeholder="Phone Number" class="input-box" required minlength="1" maxlength="10" onchange="validatePhoneNumber()">
+                <span id="phoneNumberError" style="color: red; display: none;">Phone Number is required</span><br>
+
+                <label for="date">Date:</label>
+                <input type="date" id="date" th:field="*{date}" class="input-box" required onchange="validateDate()">
+                <span id="dateError" style="color: red; display: none;">Date is required</span><br>
+
+                <label for="notes">Notes:</label>
+                <textarea id="notes" th:field="*{notes}" placeholder="Notes" class="input-box" required onchange="validateNotes()"></textarea>
+                <span id="notesError" style="color: red; display: none;">Notes are required</span><br>
+
+
+                <div class="buttons">
+                <button type="submit"  class="up-button">Save</button>
+                    <a class="dash-button" th:href="@{/dashboard}">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    var formSubmitted = false;
+
+    function validateName() {
+        var name = document.getElementById('name').value;
+        var nameError = document.getElementById('nameError');
+
+        if (formSubmitted && name.trim() === '') {
+            nameError.style.display = 'block';
+            return false;
+        } else {
+            nameError.style.display = 'none';
+            return true;
+        }
+    }
+
+    function validatePhoneNumber() {
+        var phoneNumber = document.getElementById('phoneNumber').value;
+        var phoneNumberError = document.getElementById('phoneNumberError');
+
+        if (formSubmitted && phoneNumber.trim() === '') {
+            phoneNumberError.style.display = 'block';
+            return false;
+        } else {
+            phoneNumberError.style.display = 'none';
+            return true;
+        }
+    }
+
+    function validateDate() {
+        var date = document.getElementById('date').value;
+        var dateError = document.getElementById('dateError');
+
+        if (formSubmitted && date.trim() === '') {
+            dateError.style.display = 'block';
+            return false;
+        } else {
+            dateError.style.display = 'none';
+            return true;
+        }
+    }
+
+    function validateNotes() {
+        var notes = document.getElementById('notes').value;
+        var notesError = document.getElementById('notesError');
+
+        if (formSubmitted && notes.trim() === '') {
+            notesError.style.display = 'block';
+            return false;
+        } else {
+            notesError.style.display = 'none';
+            return true;
+        }
+    }
+
+    function validateForm() {
+        formSubmitted = true;
+        var isNameValid = validateName();
+        var isPhoneNumberValid = validatePhoneNumber();
+        var isDateValid = validateDate();
+        var isNotesValid = validateNotes();
+
+        return isNameValid && isPhoneNumberValid && isDateValid && isNotesValid;
+    }
+</script>
+
+
+
+</body>
+</html>

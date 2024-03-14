@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="/css/account-created.css" th:href="@{/css/dashboard.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Recursive:wght@300..1000&display=swap" rel="stylesheet">
+
+    <style>
+        body{ background-image: url('/images/dashbackground.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+<img class="logo" th:src="@{/images/logo-font.png}" alt="logo">
+<div class="navbar">
+    <div class="logout">
+        <a class="username" th:href="@{/settings}" th:text="${userdetails?.getFullname()}">Username</a>
+        <span sec:authorize="isAuthenticated"> <a class="logout-button" th:href="@{/logout}">Logout</a></span>
+    </div>
+
+</div>
+
+<div class="site-body">
+
+    <div class="work-box">
+
+        <!-- Consultation box -->
+
+        <div class="consultation-box">
+            <h1>Consultations</h1>
+            <div class="search-box">
+                <form th:action="@{/search}" method="get">
+                    <input type="text" name="keyword" id="keyword" class="search-bar" placeholder="Search Consultations..." size="50" th:value="${keyword}" required />
+                    &nbsp;
+                    <input type="submit" class="search-button" value="Search" />
+                    <input type="button" class="search-button" value="Clear" id="btnClearPart" onclick="clearSearch()" />
+                </form>
+            </div>
+            <div class="table-container">
+                <table class="supply-table">
+                    <tbody>
+                    <tr th:each="consultation : ${consultations}">
+                        <td><a th:href="@{/consultations/{id}(id=${consultation.id})}" th:text="${consultation.name}"></a></td>
+                        <td><span style="color: #c5c5c5;" th:text="${#temporals.format(consultation.date, 'MM/dd/yy')}"></span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <a class="view-button" th:href="@{/consultations}">New</a>
+        </div>
+
+        <!--SupplyList box -->
+
+        <div class="supplyList-box">
+            <h1>Supply List </h1>
+            <div class="search-box">
+                <form th:action="@{/supplyList/search}" method="get">
+                    <input type="text" name="supplyKeyword" id="supplyKeyword" class="search-bar" placeholder="Search Supply List..." size="50" th:value="${keyword}" required />
+                    <input type="submit" class="search-button" value="Search" />
+                    <input type="button" class="search-button" value="Clear" id="btnClearSupply" onclick="clearSearch()" />
+                </form>
+            </div>
+            <div class="table-container">
+                <table class="supply-table">
+                    <tbody>
+                    <tr th:each="supplyList : ${supplies}">
+                        <td><a th:href="@{/supplyList/{id}(id=${supplyList.id})}" class="supply" th:text="${supplyList.supplyName}"></a></td>
+                        <td class="supply" style="color: #c5c5c5;" th:text="${supplyList.quantity}"></td>
+                        <td>
+                            <form th:action="@{/deleteSupply}" method="post">
+                                <input type="hidden" name="supplyId" th:value="${supplyList.id}" />
+                                <button class="delete" type="submit">X</button>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <a class="view-button" th:href="@{/supplyList}">New</a>
+
+        </div>
+
+
+
+        <div class="pay-box">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h1>Payment</h1>
+                <a class="generateReport" th:href="@{/paymentReport}">Generate Report</a>
+            </div>
+                <div class="fixed-headers">
+                <table class="payment-table">
+                    <thead>
+                    <tr class="pay-headers">
+                        <th style="padding-right: 33px;">Date</th>
+                        <th style="padding: 10px;">Total</th>
+                        <th style="padding: 10px;">You</th>
+                        <th style="padding: 10px;">Shop</th>
+                    </tr>
+                    </thead>
+                    </table>
+                    </div>
+            <div class="table-container">
+                <table class = "payment-table">
+                    <tbody>
+                    <tr th:each="payment : ${payments}">
+                        <td style="padding-right: 10px" th:text="${#temporals.format(payment.date, 'MM/dd/yy')}"></td>
+                        <td style="padding-right: 15px" th:text="${payment.amount}"></td>
+                        <td style="padding-right: 15px" th:text="${payment.amount * payment.artistPercentage / 100}"></td>
+                        <td th:text="${payment.amount - (payment.amount * payment.artistPercentage / 100)}"></td>
+                        <td>
+                            <form th:action="@{'/pay/delete/' + ${payment.id}}" method="get">
+                                <button class="delete" type="submit">X</button>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <a class="view-button" th:href="@{/pay}">New</a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function clearSearch() {
+        window.location = "[[@{/dashboard}]]";
+    }
+</script>
+</body>
+</html>
