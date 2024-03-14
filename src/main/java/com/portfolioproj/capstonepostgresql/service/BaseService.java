@@ -14,4 +14,6 @@ public interface BaseService<T> {
 
     //Implementations of this interface provide specific
     // functionality for different types of entities, allowing for polymorphism.
+
+    //This demonstrates the use of a database to create, read, update, and delete data.
 }
