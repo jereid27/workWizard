@@ -88,6 +88,7 @@ public class PayController {
         return "redirect:/dashboard";
     }
 
+    //This controller method demonstrates a payment report with multiple rows, columns, date-time stamp, and title.
     @GetMapping("/paymentReport")
     public String paymentReport(Model model, Principal principal) {
         UserDetails userdetails = userDetailsService.loadUserByUsername(principal.getName());
