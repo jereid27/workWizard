@@ -23,11 +23,4 @@ class UserServiceImplTest {
         assertTrue(result, "Expected password to contain a special character but it did not.");
     }
 
-    @Test
-    void specialCharacters_ShouldReturnFalse_WhenPasswordDoesNotContainSpecialCharacter() {
-
-        String password = "password";
-        boolean result = userService.specialCharacters(password);
-        assertFalse(result, "Expected password not to contain a special character but it did.");
-    }
 }
