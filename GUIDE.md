@@ -124,3 +124,6 @@ https://gitlab.com/wgu-gitlab-environment/student-repos/jereid7/d424-software-en
 
 ### URL LINK TO HOSTED WEBSITE
 https://d424-capstone-d7449667325d.herokuapp.com/
+
+### URL LINK TO PANOPTO VIDEO
+https://wgu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=aa3860aa-f502-43ce-b002-b13400151e67
