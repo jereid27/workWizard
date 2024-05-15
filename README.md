@@ -1,4 +1,4 @@
-## WORK WIZARD - Employee Dashboard
+# WORK WIZARD - Employee Dashboard
 
 ### About this project:
 Work Wizard - Employee Dashboard is a fullstack application built using Java, Spring Boot, Spring Boot Security, HTML, CSS, and
